@@ -132,8 +132,8 @@
 		<h2 class="font-weight-bold">The Problem</h2>
 		<h5>The unpredictability of skyrocketing commodity price levels tightened and raised the size of collateral
 			requirements</h5>
-		<div class="row flex-lg-row flex-column mt-5">
-			<div class="col-12 col-lg-6">
+		<div class="row mt-5">
+			<div class="col-lg mr-lg-5 pt-4">
 				<div class="row">
 					<div class="col-12 col-sm-6 text-center mb-5">
 						<p class="h1 text-primary font-weight-bold">$25.3</p>
@@ -153,7 +153,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-lg-6 problem-right">
+			<div class="col-lg ml-lg-5 problem-right">
 				<img src="images/right.png" alt="#">
 			</div>
 		</div>
@@ -378,12 +378,12 @@
 <section class="contact-us" id="contacts">
 	<div class="container ps-4 pe-4">
 		<div class="row flex-lg-row flex-column gx-5">
-			<div class="col-lg-6 pr-4">
-				<h2 class="font-weight-bold">Contact us</h2>
+			<div class="col-lg-6" style="margin-inline: auto">
+				<h2 class="font-weight-bold mb-3">Contact us</h2>
 				<h3>Our friendly team would love to hear from you.</h3>
 				<form class="mt-5">
 
-					<div class="row mb-3">
+					<div class="row mb-2">
 						<div class="col">
 							<div class="form-group">
 								<label for="validationDefault01" class="text-black">First name</label>
@@ -405,7 +405,7 @@
 
 					<div class="mb-4">
 						<label class="w-100" for="validationDefault04">Phone number</label>
-						<input pattern="[0-9]" type="tel" class="form-control w-100" id="validationDefault04">
+						<input type="tel" class="form-control w-100" id="validationDefault04" name="phone_no">
 					</div>
 
 					<div class="mb-4">
@@ -414,15 +414,12 @@
 					</div>
 
 
-					<div class="mb-3 form-check">
-						<input type="checkbox" class="form-check-input" id="validationDefault05" required>
-						<label class="form-check-label" for="validationDefault05">You agree to our friendly <a class="text-muted" href="#">privacy policy</a>.</label>
+					<div class="mb-4 form-check">
+						<input type="checkbox" class="form-check-input custom-checkbox" id="validationDefault05" value="yes" required>
+						<label class="form-check-label" for="validationDefault05">You agree to our friendly <a class="text-decoration-underline" href="#">privacy policy</a>.</label>
 					</div>
-					<button style="width: 100%; border-radius: 8px; border: 1px solid #2A7E62; background: #2A7E62;" type="submit" class="btn btn-primary btn-block">Send message</button>
+					<button style="width: 100%; border-radius: 8px; padding-block: 12px; font-weight: 600; border: 1px solid #2A7E62; background: #2A7E62;" type="submit" class="btn btn-primary btn-block">Send message</button>
 				</form>
-			</div>
-			<div class="col-lg-6 pl-4 right"> <!-- Добавляем отступ между блоками -->
-
 			</div>
 		</div>
 	</div>
@@ -435,7 +432,7 @@
   <div class="footer-main">
     <div class="container">
       <div class="row justify-content-between py-5">
-        <div class="col-4 align-self-center">
+        <div class="col-12 col-lg-4 align-self-center">
           <div class="block">
             <a href="index.html"><img src="images/logo-white.svg" alt="footer-logo"></a>
             <p class="text-white mt-3">Powerful product to help you trade and track easier</p>
@@ -471,15 +468,13 @@
 	<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
 	<script>
 		const input = document.querySelector("#validationDefault04");
-		window.intlTelInput(input, {
+		const iti = window.intlTelInput(input, {
 			utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
 		});
-	</script>
+		const countryData = iti.getSelectedCountryData();
+		const countryCode = '+'+countryData.dialCode; // Получение кода страны (например, "US")
+		console.log(countryCode)
 
-	<script>
-		document.getElementById("validationDefault04").addEventListener("input", function () {
-			this.value = this.value.replace(/\D/g, ''); // Удаляем все символы, кроме цифр
-		});
 	</script>
 
   <script src="plugins/jquery/jquery.min.js"></script>
